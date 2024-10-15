@@ -39,10 +39,13 @@ jobs:
         run: npm install -g pnpm
 
       - name: Install dependencies
-        run: pnpm install --prod
+        run: pnpm install
 
       - name: Build project
         run: pnpm run build
+
+      - name: Clean up development dependencies
+        run: pnpm prune --prod
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
